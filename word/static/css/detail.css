@@ -1,75 +1,6 @@
-/* 폰트 적용 */
-@font-face { 
-    font-family: 'Nanum-B';
-    src: local('Nanum-B'), url('../font/NanumSquareB.ttf');
-}
-@font-face { 
-    font-family: 'Nanum-EB';
-    src: local('Nanum-EB'), url('../font/NanumSquareEB.ttf');
-}
-@font-face { 
-    font-family: 'Nanum-L'; 
-    src: local('Nanum-L'), url('../font/NanumSquareL.ttf');
-}
-@font-face { 
-    font-family: 'Nanum-R'; 
-    src: local('Nanum-R'), url('../font/NanumSquareR.ttf');
-}
-
-/* 페이지 공통 */
-body{
-    background-color : #FFFFFF;
-    overflow-x : hidden;
-}
-
-a {text-decoration: none;}
-
-a:link {text-decoration: none;}
-a:visited {text-decoration: none; }
-a:active {text-decoration: none; }
-a:hover {text-decoration: none; }
-
-
-/*navbar*/
-.nav-item{
-    font-family: "Nanum-B";
-    color: #FFFFFF;
-    font-size: 15px;
-    margin: 1% 0.5% 1%;
-     
-}
-
-/* title */
-#title-container{
-    background-color: #00462A;
-}
-#main-title{
-    font-family : 'Nanum-EB';
-    font-size: 40px;
-    color: #FFFFFF;
-    text-align: center; 
-    width:100%;
-    margin: 1% 0% 1%
-}
-#describe{
-    font-family : 'Nanum-B';
-    font-size: 20px;
-    color: #FFFFFF;
-    text-align: center;
-    width:100%;
-    margin: 1% 0% 3%
-}
-
-#user{
-    font-family: "Nanum-B";
-    color: #FFFFFF;
-    font-size: 15px;
-    padding: 1% 1% 1%;
-}
-
 /*detail*/
 .detail{
-    background-color: #efefef;
+    background-color: #EFEFEF;
     margin: 10% 10% 10%;
     border-radius: 10px;
 }
@@ -95,6 +26,13 @@ a:hover {text-decoration: none; }
 }
 
 .link{
+    font-family : 'Nanum-B';
+    font-size: 17px;
+    text-align: center;
+    padding: 3% 0% 3%;
+}
+
+.hashtag{
     font-family : 'Nanum-B';
     font-size: 17px;
     text-align: center;

@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Word
+from .models import Word, Hashtag
 from django.utils import timezone
 # Create your views here.
 
@@ -25,7 +25,8 @@ def about(request):
 #게시글 조회
 def detail(request, word_id):
     word_detail = get_object_or_404(Word, pk=word_id)
-    return render(request, 'detail.html', {'word' : word_detail})
+    hashtags = word_detail.hashtag.all()
+    return render(request, 'detail.html', {'word' : word_detail, 'hashtags' : hashtags})
 
 #게시글 추가페이지
 def new(request):
@@ -38,6 +39,13 @@ def create(request):
     word.body =  request.GET['body']
     word.pup_date =  timezone.datetime.now()
     word.save()
+
+    hashtags=request.GET['hashtags']
+    hashtag = hashtags.split(",")
+    for tag in hashtag:
+        ht = Hashtag.objects.get_or_create(name = tag)
+        word.hashtag.add(ht[0])
+        
     return redirect('/word/'+str(word.id))
 
 #게시글 삭제
@@ -59,3 +67,4 @@ def update(request, word_id):
     word.pup_date =  timezone.datetime.now()
     word.save()
     return redirect('home')
+
