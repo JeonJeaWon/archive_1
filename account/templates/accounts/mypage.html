@@ -21,14 +21,6 @@
 {% endblock %}
 
 {% block downcontent %}
-        <div class="container-fluid">
-            <div class="row">
-                <form class="search" action="{% url 'home' %}" method="GET">
-                    <input type="text" name="search">
-                    <button class="btn btn-outline-secondary" type="submit">검색</button>
-                </form>
-            </div>
-        </div>
 
         <h2>회원탈퇴</h2>
         <form action="{% url 'mem_delete' %}" method="POST" id="del_form">

@@ -24,5 +24,14 @@
         <div id="describe">Growth Newsletter</div>
     </div>
 </div>
+<div class="container-fluid">
+    <div class="row">
+        <form class="search" action="{% url 'search' %}" method="GET">
+            <input type="text" name="search">
+            <button class="btn btn-outline-secondary" type="submit">검색</button>
+        </form>
+    </div>
+</div>
+
 {% block downcontent %}
 {% endblock %}

@@ -1,0 +1,72 @@
+{% extends "navbar.html" %}
+{% block upcontent %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--Bootstrap-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+        <!--CSS-->
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/search.css' %}">
+    </head>
+    <body>   
+{% endblock %}
+
+{% block downcontent %}
+    <div class="search_keyword">
+    <p>"{{keyword}}"를 검색한 결과입니다.</p>
+    </div>
+
+        {%if check %}
+
+        <div class="container-fluid">
+            <div class="row">
+                {% for word in words.all %}
+                <div class="col-sm-3 card">
+                    <div class="title">{{word.title}}</div>
+                    <div class="date">{{word.pup_date}}</div>
+                    <div class="summary">{{word.summary}}</div>
+                    <a class="link" href="{% url 'detail' word.id%}">....더보기</a>
+                    <a class="link" href="{% url 'delete' word.id %}"> 삭제</a>
+                    <a class="link" href="{% url 'edit' word.id %}"> 수정</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        {% else %}
+            {% if empty %}
+                <div class="container-fluid">
+                    <div class="row" id="empty">
+                       {{empty}} 
+                    </div>
+                </div>
+            {% else %}
+            <div class="container-fluid">
+            <div class="row">
+                {% for result in results.all %}
+                <div class="col-sm-3 card">
+                    <div class="title">{{result.title}}</div>
+                    <div class="date">{{result.pup_date}}</div>
+                    <div class="summary">{{result.summary}}</div>
+                    <a class="link" href="{% url 'detail' result.id%}">....더보기</a>
+                    <a class="link" href="{% url 'delete' result.id %}"> 삭제</a>
+                    <a class="link" href="{% url 'edit' result.id %}"> 수정</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+            {% endif %}
+        {% endif %}
+        
+    </body>
+</html>
+{% endblock %}

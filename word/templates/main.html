@@ -15,32 +15,22 @@
 
         <!--CSS-->
         <link rel="stylesheet" href="{% static 'css/home.css' %}">
-		<link rel="stylesheet" href="{% static 'css/main.css' %}">
+		<!--link rel="stylesheet" href="{% static 'css/main.css' %}"-->
 		
     </head>
     <body> 
 
 {% endblock %}
 {% block downcontent %}
-        <div class="container-fluid">
-            <div class="row">
-                <form class="search" action="{% url 'home' %}" method="GET">
-                    <input type="text" name="search">
-                    <button class="btn btn-outline-secondary" type="submit">검색</button>
-                </form>
-            </div>
-        </div>
 
         <!--구독폼-->
         <div class = "applyform">
-            <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/resource.stibee.com/subscribe/stb_subscribe_form_style.css">
-	<div id="stb_subscribe">
-		<div class="stb_header">
-			<img src="https://s3.ap-northeast-2.amazonaws.com/img.stibee.com/42630_list_105449_subscriptions_header_image.png?v=1615804998">
-		</div>
+		<div id="stb_subscribe">
+			<!--구독폼css위치-->
+			<link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/resource.stibee.com/subscribe/stb_subscribe_form_style.css">
 		<form action="https://stibee.com/api/v1.0/lists/Kkr2VCdZ14GB58aq0dDoRbzjKaLSpA==/public/subscribers?groupIds=84929" method="POST" target="_blank" accept-charset="utf-8" class="stb_form" name="stb_subscribe_form" id="stb_subscribe_form" novalidate="">
-			<h1 class="stb_form_title">FrogGii 구독하기</h1>
-			<p class="stb_form_description">FrogGii 구독해주세요!</p>
+			<h1 class="stb_form_title">Froggi 구독하기</h1>
+			<p class="stb_form_description">FroGGi | 청년들의 성장 뉴스레터📰🌱🐸<br>🐸우물 밖 개구리되기<br>🌱매주 월,수,금 프로거들을 찾아갑니다~!</p> 
 			<fieldset class="stb_form_set">
 				<label for="stb_email" class="stb_form_set_label">이메일 주소</label>
 				<input type="email" class="stb_form_set_input" id="stb_email" name="email">
