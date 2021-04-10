@@ -1,47 +1,37 @@
-{% extends "navbar.html" %}
-{% block upcontent %}
+{% extends "base.html" %}
+{% block header %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!--Bootstrap-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<!--CSS-->
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
 
-        <!--CSS-->
-        <link rel="stylesheet" href="{% static 'css/home.css' %}">
-        
-    </head>
-    <body>   
 {% endblock %}
 
-{% block downcontent %}
+{% block content %}
 
-        <h2>회원탈퇴</h2>
-        <form action="{% url 'mem_delete' %}" method="POST" id="del_form">
-            {% csrf_token %}
-            <input type="button" value="회원탈퇴" onclick="mem_delete()"/>
-        </form>
-        
-        <script type="text/javascript">
-            function mem_delete(){
-                del_form=document.getElementById("del_form")
-                if(confirm("정말로 탈퇴하시겠습니까?")==true){
-                    del_form.submit();
-                }
-                else{
-                    return;
-                }
-            }
-        </script>
+<!--로그아웃폼-->
 
-    </body>
+<h1>{{user.username}}🐸님 환영합니다!</h1>
+
+<h2>회원탈퇴</h2>
+<form action="{% url 'mem_delete' %}" method="POST" id="del_form">
+    {% csrf_token %}
+    <input type="button" value="회원탈퇴" onclick="mem_delete()" />
+</form>
+
+<script type="text/javascript">
+    function mem_delete() {
+        del_form = document.getElementById("del_form")
+        if (confirm("정말로 탈퇴하시겠습니까?") == true) {
+            del_form.submit();
+        }
+        else {
+            return;
+        }
+    }
+</script>
+
+</body>
+
 </html>
 {% endblock %}
-
-

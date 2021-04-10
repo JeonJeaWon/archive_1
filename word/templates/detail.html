@@ -1,48 +1,33 @@
-{% extends "navbar.html" %}
-{% block upcontent %}
+{% extends "base.html" %}
+{% block header %}
 {% load static %}
-<!DOCTYPE html>
-<html>
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--CSS-->
+<link rel="stylesheet" href="{% static 'css/detail.css' %}">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
 
-    <!--Bootstrap-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+{% endblock %}
 
-    <!--CSS-->
-    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-</head>
-
-<body>
-    {% endblock %}
-    {% block downcontent %}
-    <!--디테일 카드-->
-    <div class="detail">
-        <div class="title">
-            <h1>{{ word.title }}</h1>
-        </div>
-        <div class="date">
-            <p>{{ word.pup_date }}</p>
-        </div>
-        <div class="body">
-            <p>{{ word.body }}</p>
-        </div>
-
-        <div class="hashtag">
-            {% for hashtag in hashtags %}
-            #{{ hashtag.name }}
-            {% endfor %}
-        </div>
-        <br>
-        <div class="link"><a href="{% url 'home' %}">돌아가기</a></div>
+{% block content %}
+<!--디테일 카드-->
+<div class="detail">
+    <div class="title">
+        <h1>{{ word.title }}</h1>
     </div>
-</body>
+    <div class="date">
+        <p>{{ word.pup_date }}</p>
+    </div>
+    <div class="body">
+        <p>{{ word.body }}</p>
+    </div>
 
-</html>
+    <div class="hashtag">
+        {% for hashtag in hashtags %}
+        #{{ hashtag.name }}
+        {% endfor %}
+    </div>
+    <br>
+    <div class="link"><a href="{% url 'home' %}">돌아가기</a></div>
+</div>
+
 {% endblock %}

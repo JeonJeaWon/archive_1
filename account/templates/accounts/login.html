@@ -1,49 +1,36 @@
-{% extends "navbar.html" %}
-{% block upcontent %}
+{% extends "base.html" %}
+{% block header %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!--Bootstrap-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-        <!--CSS-->
-        <link rel="stylesheet" href="{% static 'css/login.css' %}">
-        <link rel="stylesheet" href="{% static 'css/home.css' %}">
-        
-    </head>
-    <body>
+<!--CSS-->
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
 {% endblock %}
 
-{% block downcontent %}
-        <div class="container">
-            <div>
-                <form action="{% url 'login' %}" method="POST">
-                    {% csrf_token %}
-                    <div class = username>Username:</div>
-                    <input name="username" type="text" value="">
-                    <br>
-                    <div class = password>Password:</div>
-                    <input name="password" type="password" value="">
-                    <br>
-                    <br>
-                    <input class="btn btn-primary" type="submit" value="Login">
-                </form>
+{% block content %}
 
-                {% if error %}
-                {{error}}
+<!--로그인폼-->
+<div class="container">
+    <div>
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            <div class=username>Username:</div>
+            <input name="username" type="text" value="">
+            <br>
+            <div class=password>Password:</div>
+            <input name="password" type="password" value="">
+            <br>
+            <br>
+            <input class="btn btn-primary" type="submit" value="Login">
+        </form>
 
-                {% endif%}
-                
-            </div>
-        </div>
-    </body>
-</html>
+        {% if error %}
+        {{error}}
+
+        {% endif%}
+
+    </div>
+</div>
 {% endblock %}
-

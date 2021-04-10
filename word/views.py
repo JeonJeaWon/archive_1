@@ -3,13 +3,14 @@ from .models import Word, Hashtag
 from django.utils import timezone
 # Create your views here.
 
-#전체 홈페이지
+#아카이브 홈페이지
 def main(request):
     return render(request, 'main.html')
 
 #아카이브 홈페이지
 def home(request):
-    return render(request, 'home.html')
+    words = Word.objects.all()
+    return render(request, 'home.html', {'words' : words})
 
 #서치
 def search(request):
