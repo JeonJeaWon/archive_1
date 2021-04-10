@@ -2,6 +2,9 @@
 {% block header %}
 {% load static %}
 
+<!-- Link Swiper's CSS -->
+<!--link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" /-->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
 <!--CSS-->
 <link rel="stylesheet" href="{% static 'css/base.css' %}">
@@ -10,6 +13,24 @@
 {% endblock %}
 
 {% block content %}
+
+<!-- Swiper -->
+<div class="swiper_div">
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">Slide 1</div>
+			<div class="swiper-slide">Slide 2</div>
+			<div class="swiper-slide">Slide 3</div>
+			<div class="swiper-slide">Slide 4</div>
+			<div class="swiper-slide">Slide 5</div>
+		</div>
+		<!-- Add Pagination -->
+		<div class="swiper-pagination" id="swiper_icon"></div>
+		<!-- Add Arrows -->
+		<div class="swiper-button-next" id="swiper_icon"></div>
+		<div class="swiper-button-prev" id="swiper_icon"></div>
+	</div>
+</div>
 
 <!--구독폼-->
 <div class="applyform">
@@ -25,8 +46,9 @@
 				id="stb_subscribe_form" novalidate="">
 				<div class="apply_des">
 					<br><br>
-					<h1 class="stb_form_title" style=font-size:2em; >Froggii 구독하기</h1>
-					<p class="stb_form_description" style=font-size:1.5em;>FroGGii | 청년들의 성장 뉴스레터📰🌱🐸<br>🐸우물 밖 개구리되기<br>🌱매주 월,수,금 프로거들을
+					<h1 class="stb_form_title" style=font-size:2em;>Froggii 구독하기</h1>
+					<p class="stb_form_description" style=font-size:1.5em;>FroGGii | 청년들의 성장 뉴스레터📰🌱🐸<br>🐸우물 밖
+						개구리되기<br>🌱매주 월,수,금 프로거들을
 						찾아갑니다~!
 					</p>
 				</div>
@@ -83,5 +105,29 @@
 	<script type="text/javascript"
 		src="https://s3.ap-northeast-2.amazonaws.com/resource.stibee.com/subscribe/stb_subscribe_form.js"></script>
 </div>
+
+<!-- Swiper JS -->
+<!--script src="https://unpkg.com/swiper/swiper-bundle.js"></script-->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+	var swiper = new Swiper('.swiper-container', {
+		spaceBetween: 30,
+		centeredSlides: true,
+		autoplay: {
+			delay: 10000,
+			disableOnInteraction: false,
+		},
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+		},
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+	});
+</script>
 
 {% endblock %}

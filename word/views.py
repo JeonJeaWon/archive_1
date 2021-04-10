@@ -12,6 +12,18 @@ def home(request):
     words = Word.objects.all()
     return render(request, 'home.html', {'words' : words})
 
+#아카이브 홈페이지
+def filter(request):
+    value = request.GET.get('filter')
+    if value:
+        result = Word.objects.filter(**{ 'hashtag__contains' :value})
+        if not result:
+                return render(request, 'home.html', {'empty': '검색 결과가 없습니다'})
+        return render(request, 'filter.html',{ 'results': result, 'value': value})
+    else:
+        words = Word.objects.all()
+        return render(request, 'filter.html', {'words' : words, 'results' : result})
+
 #서치
 def search(request):
     keyword = request.GET.get('search')

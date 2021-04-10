@@ -1,51 +1,30 @@
 {% extends "base.html" %}
 {% block header %}
 {% load static %}
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!--Bootstrap-->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 <!--CSS-->
 <link rel="stylesheet" href="{% static 'css/base.css' %}">
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 
-<!--icons-->
-<script src="https://kit.fontawesome.com/351ea5145b.js" crossorigin="anonymous"></script>
-<!--js-->
-<script src="navbar.js" defer></script>
-
 {% endblock %}
 
 {% block content %}
 
-<div class="container-fluid">
-    <div class="row">
-        <form class="search" action="{% url 'search' %}" method="GET">
-            <input type="text" name="search">
-            <button class="btn btn-outline-secondary" type="submit">검색</button>
+<!--필터 버튼-->
+<div class="filter_div">
+    <div class="filter_container">
+        <form class="filter" action="{% url 'home' %}" method='GET'>
+            <button type="submit" name="filter" value="economy">경제</button>
+            <button type="submit" name="filter" value="dream">진로</button>
+            <button type="submit" name="filter" value="relation">인간관계</button>
         </form>
     </div>
-</div>
-
-<div class="container-fluid">
-        <div class="row">
-            <form class="filter" action="#" method="GET">
-                <button type="submit" name="filter" value="economy">경제</button>
-                <button type="submit" name="filter" value="future">진로</button>
-                <button type="submit" name="filter" value="relation">인간관계</button>
-            </form>
-        </div>
 </div>
 
 <!--모든 게시물-->
 <div class="container-fluid">
     <div class="row">
-        {% for word in words %}
+        {% for word in words.all %}
         <div class="col-sm-3 card">
             <div class="title">{{word.title}}</div>
             <div class="date">{{word.pup_date}}</div>
