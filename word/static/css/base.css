@@ -52,15 +52,15 @@ a:hover {text-decoration: none; }
 
 /*navbar*/
 .navbar_wrapper{
-    margin-top: 10px;
+    margin-top: 0.5em;
 }
 
 .navbar{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /*padding: 0px 20px;*/
-    padding: 0px 0px;
+    padding: 0;
+    margin: 0;
 }
 
 .navbar_logo{
@@ -77,20 +77,21 @@ a:hover {text-decoration: none; }
     color:#3ac569;
 }
 
-.navbar_menu{
-    display: flex;
-    font-size: 18px;
-    list-style: none;
-    padding-left: 0;
+.navbar nav{
+    padding: 0;
+    margin: 0;
 }
 
-li.log_menu{
-    font-size: 18px;
+.navbar_menu{
+    display: flex;
+    font-size: 1.25em;
+    list-style: none;
+    padding: 0;
 }
 
 .navbar_menu li {
-    padding: 8px 10px;
-    /*padding: 8px 20px;*/
+    padding: 0.75em 1.5em 0.75em 1.5em;
+    text-align: center;
 }
 
 .navbar_menu li:hover {
@@ -115,12 +116,14 @@ li.log_menu{
 }
 
 .navbar_icons li{
-    padding: 0px 20px;
+    padding: 0px 1em;
     list-style: none;
 }
 
 .search{
-    padding-top: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.25em;
+    padding-bottom: 0;
 }
 
 #user{

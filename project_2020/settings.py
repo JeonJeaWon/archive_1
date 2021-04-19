@@ -36,12 +36,22 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    #'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'word.apps.WordConfig',
     'account.apps.AccountConfig',
+    
+    #allauth
+    #'allauth',
+    #'allauth.account', #가입한 계정 관리
+    #'allauth.socialaccount', #소셜 계정으로 가입한 계정 관리
+
+    #provider : 어느 서버와 소통할지 결정(naver, google, facebook, kakaotalk, ...)
+    #'allauth.socialaccount.providers.naver',
+
 ]
 
 MIDDLEWARE = [
@@ -135,6 +145,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+#AUTHENTICATION_BACKENDS = (
+    #'django.contrib.auth.backends.ModelBackend',
+    #'allauth.account.auth_backends.AuthenticationBackend',
+#)
+#SITE_ID = 1
+
+#LOGIN_REDIRECT_URL = '/'
 
 #import dj_database_url
 

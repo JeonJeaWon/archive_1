@@ -10,19 +10,23 @@ def main(request):
 #아카이브 홈페이지
 def home(request):
     words = Word.objects.all()
+    hashtags = Word.hashtag.all()
+    #word_detail = get_object_or_404(Word, pk= word_id)
+    #hashtags = word_detail.hashtag.all()
     return render(request, 'home.html', {'words' : words})
+    #return render(request, 'detail.html', {'word':word_detail, 'hashtags':hashtags})
 
-#아카이브 홈페이지
+#필터링
 def filter(request):
-    value = request.GET.get('filter')
+    value = request.GET['hash_fi']
     if value:
-        result = Word.objects.filter(**{ 'hashtag__contains' :value})
-        if not result:
-                return render(request, 'home.html', {'empty': '검색 결과가 없습니다'})
-        return render(request, 'filter.html',{ 'results': result, 'value': value})
+        #result = Hashtag.objects.get(name=value)
+        results = Word.objects.filter(hashtag = value).order_by('pup_date')
+        if not results:
+            return render(request, 'home.html', {'empty': '검색 결과가 없습니다'})
+        return render(request, 'home.html',{ 'results': results, 'value': value})
     else:
-        words = Word.objects.all()
-        return render(request, 'filter.html', {'words' : words, 'results' : result})
+        return redirect('home')
 
 #서치
 def search(request):
