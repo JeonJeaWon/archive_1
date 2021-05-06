@@ -1,20 +1,16 @@
-% extends "base.html" %}
+{% extends "base.html" %}
 {% block header %}
 {% load static %}
 
 <!--CSS-->
 <link rel="stylesheet" href="{% static 'css/base.css' %}">
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/search.css' %}">
 
 {% endblock %}
 
 {% block content %}
 
-
-<h1>HOME 화면입니다.</h1>
-
-<br>
-<br>
 
 <!--모든 게시물-->
 <div class="container-fluid">
@@ -31,33 +27,5 @@
         {% endfor %}
     </div>
 </div>
-
-{%if check %}
-
-<!--검색 결과 없을때-->
-{% if empty %}
-<div class="container-fluid">
-    <div class="row" id="empty">
-        {{empty}}
-    </div>
-</div>
-{% else %}
-<!--검색결과 존재할때-->
-<div class="container-fluid">
-    <div class="row">
-        {% for result in results.all %}
-        <div class="col-sm-3 card">
-            <div class="title">{{result.title}}</div>
-            <div class="date">{{result.pup_date}}</div>
-            <div class="summary">{{result.summary}}</div>
-            <a class="link" href="{% url 'detail' result.id%}">....더보기</a>
-            <a class="link" href="{% url 'delete' result.id %}"> 삭제</a>
-            <a class="link" href="{% url 'edit' result.id %}"> 수정</a>
-        </div>
-        {% endfor %}
-    </div>
-</div>
-{% endif %}
-{% endif %}
 
 {% endblock %}

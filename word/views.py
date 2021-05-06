@@ -10,11 +10,7 @@ def main(request):
 #아카이브 홈페이지
 def home(request):
     words = Word.objects.all()
-    #hashtags = Word.hashtag.all()
-    #word_detail = get_object_or_404(Word, pk= word_id)
-    #hashtags = word_detail.hashtag.all()
     return render(request, 'home.html', {'words' : words})
-    #return render(request, 'detail.html', {'word':word_detail, 'hashtags':hashtags})
 
 #서치
 def search(request):
